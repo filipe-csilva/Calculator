@@ -13,8 +13,8 @@ namespace Calculator
         {
             Console.Clear();
 
-            float v1, v2;
-            string operador,nomeOperador;
+            float v1, v2, result = 0;
+            string operador, nomeOperador = "";
 
             Console.WriteLine("Primeiro valor: ");
             v1 = float.Parse(Console.ReadLine());
@@ -30,28 +30,31 @@ namespace Calculator
             switch (operador)
             {
                 case "+":
-                    Soma(v1, v2);
+                    result = Soma(v1, v2);
                     nomeOperador = "soma";
                     break;
 
                 case "-":
-                    Subtracao(v1, v2);
-                    nomeOperador = "soma";
+                    result = Subtracao(v1, v2);
+                    nomeOperador = "subtração";
                     break;
 
                 case "*":
+                    result = Multiplicacao(v1, v2);
                     Multiplicacao(v1, v2);
-                    nomeOperador = "soma";
+                    nomeOperador = "multiplicação";
                     break;
 
                 case "/":
+                    result = Multiplicacao(v1, v2);
                     Divisao(v1, v2);
-                    nomeOperador = "soma";
+                    nomeOperador = "divizão";
                     break;
 
                 case "%":
+                    result = Multiplicacao(v1, v2);
                     Resto(v1, v2);
-                    nomeOperador = "soma";
+                    nomeOperador = "resto";
                     break;
 
                 default:
@@ -61,42 +64,33 @@ namespace Calculator
                     break;
 
             }
+            Console.WriteLine($"O resultado da {nomeOperador} de {v1} + {v2}, é igual a {result}");
         }
 
-        static void Soma(float v1, float v2)
+        static float Soma(float v1, float v2)
         {
             float resultado = v1 + v2;
-            Console.WriteLine($"O resultado da soma de {v1} + {v2}, é igual a {resultado}");
-            Console.ReadKey();
-            Menu();
+            return resultado;
         }
-        static void Subtracao(float v1, float v2)
+        static float Subtracao(float v1, float v2)
         {
             float resultado = v1 - v2;
-            Console.WriteLine($"O resultado da Subtração de {v1} - {v2}, é igual a {resultado}");
-            Console.ReadKey();
-            Menu();
+            return resultado;
         }
-        static void Multiplicacao(float v1, float v2)
+        static float Multiplicacao(float v1, float v2)
         {
             float resultado = v1 * v2;
-            Console.WriteLine($"O resultado da Multiplicação de {v1} * {v2}, é igual a {resultado}");
-            Console.ReadKey();
-            Menu();
+            return resultado;
         }
-        static void Divisao(float v1, float v2)
+        static float Divisao(float v1, float v2)
         {
             float resultado = v1 / v2;
-            Console.WriteLine($"O resultado da Divisão de {v1} / {v2}, é igual a {resultado}");
-            Console.ReadKey();
-            Menu();
+            return resultado;
         }
-        static void Resto(float v1, float v2)
+        static float Resto(float v1, float v2)
         {
             float resultado = v1 % v2;
-            Console.WriteLine($"O resultado da Resto de {v1} e {v2}, é igual a {resultado}");
-            Console.ReadKey();
-            Menu();
+            return resultado;
         }
     }
 }
